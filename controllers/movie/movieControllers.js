@@ -99,7 +99,9 @@ const movieControllers = {
             const moviesFound = await movieServices
                 .getAllMovies();
 
-            if (moviesFound) res.status(200).send(moviesFound)
+            if (moviesFound)
+                res.set('Access-Control-Allow-Origin', '*');
+            res.status(200).send(moviesFound)
         } catch (e) {
             res.status(e.status).send(e.message)
         }

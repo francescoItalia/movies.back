@@ -3,7 +3,7 @@ const express = require('express');
 const { checkAuthentication } = require('../../util/middlewares');
 
 // Local libraries imports
-const movieControllers = require('../../controllers/movie/movieControllers');
+const movieControllers = require('../../controllers/movie/movieController');
 
 // Instantiate router objet
 const router = express.Router();

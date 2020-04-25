@@ -2,7 +2,7 @@
 const express = require('express');
 
 // Local libraries imports
-const userControllers = require('../../controllers/user/usersControllers');
+const userControllers = require('../../controllers/user/usersController');
 const { checkAuthorization } = require('../../util/middlewares');
 
 // Instantiate the router object
