@@ -18,7 +18,7 @@ const userController = {
 
                 if (registeredUser) res.status(200).send(registeredUser)
             } catch (e) {
-                res.status(e.status).send({ err: e.message })
+                res.status(500).send('Something went wrong while saving the user!');
             }
         } else {
             res.status(400).send({ err: 'Invalid or missing fields. Please provide email, username and password' })

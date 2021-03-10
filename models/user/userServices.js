@@ -12,33 +12,20 @@ const userServices = {
                 // Check if the user already exist
                 const userExists = await UserModel.exists({ email: userData.email });
 
-                // if it doesn't exists, go ahead and create it
+                // If it doesn't exists, go ahead and create it
                 if (!userExists) {
-
-                    const newUser = new UserModel(userData)
-
+                    const newUser = new UserModel(userData);
                     let savedUser = await newUser.save();
-                    if (savedUser) {
-                        const { _id, username, email } = savedUser;
-                        resolve({ _id, username, email })
-                    } else {
-                        reject({
-                            status: 500,
-                            message: 'Something went wrong while saving the user!'
-                        })
-                    }
+
+                    const { _id, username, email } = savedUser;
+                    resolve({ _id, username, email })
+
                 } else {
-                    reject({
-                        status: 400,
-                        message: 'A user associated with this email already exists!'
-                    })
+                    resolve(false)
                 }
             } catch (err) {
                 console.log(err);
-                reject({
-                    status: 500,
-                    message: 'Something went wrong while saving the user!'
-                })
+                reject(e);
             }
         })
     },

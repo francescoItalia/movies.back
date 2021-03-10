@@ -9,7 +9,7 @@ const movieControllers = require('../../controllers/movie/movieController');
 const router = express.Router();
 
 router.post('/add', checkAuthentication, (req, res) => movieControllers.addMovie(req, res));
-router.get('/get/:title', checkAuthentication, (req, res) => movieControllers.getMovie(req, res));
+router.get('/get/:title', (req, res) => movieControllers.getMovie(req, res));
 router.put('/update', checkAuthentication, (req, res) => movieControllers.updateMovie(req, res));
 router.delete('/delete/:title', checkAuthentication, (req, res) => movieControllers.deleteMovie(req, res));
 router.get('/all', (req, res) => movieControllers.getAllMovies(req, res));
