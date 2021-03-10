@@ -1,5 +1,4 @@
 # Backend API for Movie App
-
 A Node.js API for saving and getting movies data from MongoDB.
 Only authenticated users can **add**, **update** and **delete** a movies. The other routes don't require authentication
 
